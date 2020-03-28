@@ -26,16 +26,16 @@
 //     display: grid;
 //     justify-items: center;
 // }
-
 @import 'variables';
 @import 'library';
+@import 'libraryCourse';
+@import 'arrow';
 
 .home {
   height: 100vh;
   width: 100vw;
-
   display: grid;
-  grid-template-columns: [library-start] 1fr [library-end] 1fr [schedule-start] 1fr [schedule-end];
+  grid-template-columns: [library-start] 2fr [library-end] 0 [schedule-start] 1fr [schedule-end];
   grid-template-rows: 1fr;
 }
 
