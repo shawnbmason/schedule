@@ -1,4 +1,4 @@
-import { FETCH_COURSES } from './types';
+import { FETCH_COURSES, TOGGLE_ENROLLED } from './types';
 
 import {
     Fetch_Course
@@ -7,8 +7,8 @@ import {
 export function toggleEnrolled(id) {
     return {
         type: TOGGLE_ENROLLED,
-        payload: id
-    }
+        payload: id,
+    };
 }
 
 export function fetchCourses() {
