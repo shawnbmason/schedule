@@ -7,12 +7,12 @@ import Arrow from '../arrow';
 import Action from '../action';
 
 class LibraryCourse extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      status: true
+      status: true,
+      height: 0
     };
   }
 
@@ -20,30 +20,34 @@ class LibraryCourse extends Component {
       if(!this.state.status) {
         return (
         <div className="library-course__description">
-          <label>Course Description</label>
+          <div><label>Course Description</label></div>
           <p>{ this.props.description }</p>
         </div>
       )
     }
   }.bind(this);
 
-  handleCallback = function (status) {
-    if(!status) {
-      document.getElementById('library-course').classList.remove('library-course-selected');
+  handleCallback = function(status) {
+    let height = this.state.height == 0 ? 'auto' : 0;
+    if (!status) {
+      document.getElementById(this.id).classList.add("library-course-selected");
     } else {
-      document.getElementById('library-course').classList.add('library-course-selected');
+      document.getElementById(this.id).classList.remove('library-course-selected');
     }
-     this.setState({ status })
-  }.bind(this)
+    this.setState({
+      status,
+      height
+    });
+  }.bind(this);
 
   render() {
+    this.id= `library-course-${this.props.id}`;
     return (
       <div id="library-course" className="library-course">
         <div className="library-course__title-check">
           <label className="library-course__title">{ this.props.title }</label>
           { Icon('fas fa-check', 'library-course__icon') }
         </div>
-        <div className="library-course__line"></div>
         <Arrow
         callback={status => this.handleCallback(status)}
         id={this.props.id}
@@ -52,7 +56,7 @@ class LibraryCourse extends Component {
         <Action
         id={this.props.id}
         onClick={() => this.props.toggleEnrolled(this.props.id)}
-        className="library-course__action"
+        className={`library-course__action ${this.props.enrolled ? 'action-remove' : ''}`}
         />
         { this.renderDescrtiption() }
       </div>
