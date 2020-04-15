@@ -8,7 +8,7 @@ import Action from '../action';
 
 class LibraryCourse extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       status: true,

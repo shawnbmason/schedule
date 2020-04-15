@@ -1,6 +1,6 @@
 .schedule-course {
   display: grid;
-  grid-template-columns: [title-s] 1fr [action-s] 32px [action-e] 12px [title-e];
+  grid-template-columns: [title-s] 1fr [action-s] 32px [action-e space-s] 12px [space-e title-e];
   gird-template-row: 1fr;
 
   justify-items: center;

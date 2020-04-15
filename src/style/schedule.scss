@@ -6,7 +6,7 @@
   width: 100%;
 
   display: grid;
-  grid-template-rows: 100px repeat(5, 80px) [progress-s] 76px [progress-e];
+  grid-template-rows: [space-one-s] 1fr [space-one-e title-s] 100px [title-e] repeat(5, 80px) [progress-s] 1fr [progress-e];
   grid-row-gap: 22px;
   align-items: center;
   justify-content: center;
@@ -14,13 +14,10 @@
   align-content: center;
 
   &__title {
-    // grid-row: title-s/title-e;
-    border-left: 1px solid $color-subtle-grey;
-    padding-left: 30px;
-    // padding-top: 6px;
-    // padding-bottom: 6px;
+    grid-row: title-s/title-e;
     color: white;
     font-family: $font-alegreya;
     font-size: 20px;
+    @include border-left;
   }
 }
